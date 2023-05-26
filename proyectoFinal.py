@@ -7,15 +7,26 @@ ventana.geometry("700x500")
 ventana.resizable(0,0)
 
 #------botones
-def saludo():
-    tkinter.Label(ventana, text="hello word").pack
+def abrir():
+    tkinter.Label(ventana, text="Aqui va abrir").pack()
 
-def salir():
-    ventana.destroy
+def guardar():
+    tkinter.Label(ventana, text="Aqui va Guardar").pack()
 
-boton = tkinter.Button(ventana, text="Invocar saludo", command= saludo, fg="red")
-boton.pack()
-boton.place(x= 300, y= 250) #ubicar boton dentro de ventana
+def eliminar():
+        ventana.destroy()
+
+botonAbrir = tkinter.Button(ventana, text="Invocar saludo", command= saludo, fg="red")
+botonAbrir.pack()
+botonAbrir.place(x= 100, y= 50) #ubicar boton dentro de ventana
+
+botonGuardar = tkinter.Button(ventana, text="Invocar saludo", command= saludo, fg="red")
+botonGuardar.pack()
+botonGuardar.place(x= 350, y= 50)
+
+botonEliminar = tkinter.Button(ventana, text="Invocar saludo", command= saludo, fg="red")
+botonEliminar.pack()
+botonEliminar.place(x= 600, y= 50)
 
 
 
