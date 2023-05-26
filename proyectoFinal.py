@@ -35,7 +35,6 @@ botonEliminar.place(x= 185, y= 0)
 ventana.mainloop()
 
 print("hola")
-print("hola")
 
 
 #tkinter._test()
