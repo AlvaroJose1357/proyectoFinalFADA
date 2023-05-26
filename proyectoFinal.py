@@ -35,6 +35,7 @@ botonEliminar.place(x= 185, y= 0)
 ventana.mainloop()
 
 print("hola")
+print("alvaro es gay")
 
 
 #tkinter._test()
