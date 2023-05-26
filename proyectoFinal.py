@@ -37,6 +37,6 @@ ventana.mainloop()
 
 print("hola")
 print("alvaro es gay")
-
+print("alvaro es gay x 2")
 
 #tkinter._test()
