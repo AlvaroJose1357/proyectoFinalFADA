@@ -24,6 +24,8 @@ boton.place(x= 300, y= 250) #ubicar boton dentro de ventana
 
 ventana.mainloop()
 
+print("hola")
+print("hola")
 
 
 #tkinter._test()
