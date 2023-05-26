@@ -14,7 +14,9 @@ def guardar():
     tkinter.Label(ventana, text="Aqui va Guardar").pack()
 
 def eliminar():
-        ventana.destroy()
+         tkinter.Label(ventana, text="Aqui va Eliminar").pack()
+        
+        #ventana.destroy()
 
 botonAbrir = tkinter.Button(ventana, text="Invocar saludo", command= abrir, fg="red")
 botonAbrir.pack()
