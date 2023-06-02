@@ -128,6 +128,7 @@ def seleccionar_directorio():
 def actualizar_archivos(directorio):
     lista_mes.delete(0, END)
     lista_archivos.delete(0, END)
+    
     if os.path.isdir(directorio):
         contenido = os.listdir(directorio)
         for elemento in contenido:
