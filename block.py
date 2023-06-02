@@ -195,7 +195,10 @@ def seleccionar_directorio():
                 actualizar_meses(directorio)
         else:
             actualizar_archivos(directorio)
-
+'''
+def eliminar_archivos(directorio):
+    lista_archivos.delete(0, END)'''
+    
 def actualizar_meses(directorio):
     lista_mes.delete(0, END)
 
