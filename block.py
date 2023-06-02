@@ -17,9 +17,7 @@ def crear_carpetas_meses(directorio):
             carpeta_mes = os.path.join(directorio, mes)
             if not os.path.exists(carpeta_mes):
                 os.mkdir(carpeta_mes)
-
         return True
-
     return False
 
 # Funcion guardar archivos
@@ -27,23 +25,15 @@ def guardar_arc():
     filepath = asksaveasfilename(defaultextension=".txt", filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
     if not filepath:
         return
-    
     #Obtener nombre del archivo
     archivo = os.path.basename(filepath)
-
-
     #Extraer el nombre del archivo
     mes = obt_mes(archivo)
-
     #Crea la ruta de la carpeta del mes
-
     carpeta = os.path.join(os.getcwd(), mes)
-
     #Verifica la existencia de la carpeta
-    
     if not os.path.exists(carpeta):
-         os.mkdir(carpeta)
-
+        os.mkdir(carpeta)
 
     #Guarda en la carpeta correspondiente
     ruta_guardar = os.path.join(carpeta, archivo)
@@ -62,15 +52,12 @@ def guardar():
             text = text_edit.get(1.0, END)
             output_file.write(text)
 
-    
 #Funcion para obtener el mes del archivo
 
 def obt_mes(archivo):
-
 #Suponiendo que el mes esta al inicio del nombre del archivo    
     mes = archivo.split("_")[0]
     return mes
-
 #Funcion para obtener los nombres de los meses y crear las carpetas    
 def obt_nombre_mes(directorio):
     nombre_carpeta= []
@@ -79,7 +66,6 @@ def obt_nombre_mes(directorio):
     return nombre_carpeta
 
 #actualizar listbox
-
 def actualizar_archivos(event):
     indice_seleccionado = lista_mes.curselection()
     if indice_seleccionado:
@@ -109,8 +95,9 @@ def abrir_archivo_seleccionado(event):
     ruta_archivo = os.path.join(os.getcwd(), directorio_seleccionado, archivo_seleccionado)
 
     if os.path.isfile(ruta_archivo):
-        with open(ruta_archivo, "r") as archivo:
+        with open(ruta_archivo, "r", encoding="utf-8"):
             contenido = archivo.read()
+            ruta_archivo.close()
             text_edit.delete(1.0, END)
             text_edit.insert(END, contenido)
         ventana.title(f"Bloc de Notas - {ruta_archivo}")
@@ -185,7 +172,7 @@ def seleccionar_directorio():
     directorio = askdirectory()
     if directorio:
         respuesta = messagebox.askquestion("Crear carpetas de meses",
-                                           "¿Desea crear las carpetas de los 12 meses en el directorio seleccionado?")
+                                            "¿Desea crear las carpetas de los 12 meses en el directorio seleccionado?")
         if respuesta == "yes":
             if crear_carpetas_meses(directorio):
                 actualizar_meses(directorio)
