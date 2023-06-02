@@ -107,6 +107,27 @@ user32 = ctypes.windll.user32
 width, height = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 
 #Editar un archivo 
+'''def abrir_archivo_seleccionado(event):
+    # Obtener el índice del archivo seleccionado
+    indice = lista_archivos.curselection()
+
+    # Verificar si se ha seleccionado un archivo
+    if indice:
+        # Obtener el nombre del archivo seleccionado
+        archivo_seleccionado = lista_archivos.get(indice[0])
+        # Construir la ruta completa del archivo
+        carpeta_seleccionada = lista_mes.get(lista_mes.curselection())
+        ruta_archivo = os.path.join(os.getcwd(), carpeta_seleccionada, archivo_seleccionado)
+        # Verificar si el archivo existe
+        if os.path.isfile(ruta_archivo):
+            # Abrir el archivo en la ventana de texto
+            text_edit.delete(1.0, END)
+            with open(ruta_archivo, "r") as file:
+                contenido = file.read()
+                text_edit.insert(END, contenido)
+            # Actualizar el título de la ventana
+            ventana.title(f"Bloc de Notas - {ruta_archivo}")'''
+            
 def abrir_archivo_seleccionado(event):
     # Obtener el índice del archivo seleccionado
     indice = lista_archivos.curselection()
@@ -115,19 +136,15 @@ def abrir_archivo_seleccionado(event):
     if indice:
         # Obtener el nombre del archivo seleccionado
         archivo_seleccionado = lista_archivos.get(indice[0])
-
         # Construir la ruta completa del archivo
-        carpeta_seleccionada = lista_mes.get(lista_mes.curselection())
+        carpeta_seleccionada = lista_archivos.get(lista_mes.curselection())
         ruta_archivo = os.path.join(os.getcwd(), carpeta_seleccionada, archivo_seleccionado)
-
         # Verificar si el archivo existe
         if os.path.isfile(ruta_archivo):
             # Abrir el archivo en la ventana de texto
-            text_edit.delete(1.0, END)
-            with open(ruta_archivo, "r") as file:
-                contenido = file.read()
-                text_edit.insert(END, contenido)
-
+            for i in range(3):
+                linea = ruta_archivo.readline()
+                text_edit.insert(END, linea)
             # Actualizar el título de la ventana
             ventana.title(f"Bloc de Notas - {ruta_archivo}")
 
